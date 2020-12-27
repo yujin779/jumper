@@ -9,6 +9,7 @@ import styles from "./styles";
 import { createGlobalState } from "react-hooks-global-state";
 
 import Floor from "./components/Floor";
+import Player from "./components/Player";
 
 /*
  * 1. 表示される入り口
@@ -21,7 +22,7 @@ const App = () => {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         <CameraController />
-
+        <Player />
         <Floor />
       </Canvas>
     </View>

@@ -11,8 +11,9 @@
     "react-native-size-matters": "0.4.0",
     "react-native-web": "0.13.16",
     "react-scripts": "3.4.1",
-    "react-three-fiber": "5.3.10",
-    "three": "0.123.0"
+    "react-three-fiber": "4.2.21",
+    "three": "0.123.0",
+    "use-cannon": "0.5.3"
   },
   "devDependencies": {},
   "scripts": {

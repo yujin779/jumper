@@ -33,7 +33,7 @@ const App = () => {
           defaultContactMaterial={{ restitution: 0 }}
         >
           <Player />
-          <Floor />
+          <Floor position={[0, 10, 0]} args={[5, 0.5, 5]} />
         </Physics>
       </Canvas>
     </View>

@@ -8,7 +8,7 @@ import { createGlobalState } from "react-hooks-global-state";
 /*
  * 1. 表示される入り口
  */
-const Floor = () => {
+const Floor = ({ position, args, color }) => {
   const [ref] = useBox(() => ({
     type: "Static",
     mass: 1,

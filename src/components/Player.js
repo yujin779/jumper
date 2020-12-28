@@ -16,7 +16,7 @@ const Player = () => {
   const [ref, api] = useBox(() => ({
     mass: 1,
     args: [1, 1, 1],
-    position: [1, 3, 0],
+    position: [0, 3, 0],
     onCollide: (obj) => {
       if (obj.body.name === "floor") setLanding(true);
     }

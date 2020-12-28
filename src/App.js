@@ -15,7 +15,7 @@ import Player from "./components/Player";
  * 1. 表示される入り口
  */
 const App = () => {
-  const [, setJump] = useGlobalState("jump");
+  const [, setJump] = useGlobalState("tap");
   return (
     <View style={styles.app}>
       <Canvas

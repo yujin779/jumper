@@ -13,10 +13,11 @@ const Floor = () => {
     type: "Static",
     mass: 1,
     args: [10, 1, 10],
-    position: [0, -1, 0]
+    position: [0, -1, 0],
+    name: "floor"
   }));
   return (
-    <mesh ref={ref}>
+    <mesh ref={ref} name="floor">
       <boxBufferGeometry attach="geometry" args={[10, 1, 10]} />
       <meshStandardMaterial attach="material" color={"hotpink"} />
     </mesh>

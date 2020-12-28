@@ -9,6 +9,6 @@ export const Scene = {
 const initialState = {
   scene: Scene.Opning,
   score: 0,
-  jump: false
+  tap: false
 };
 export const { useGlobalState } = createGlobalState(initialState);

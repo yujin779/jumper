@@ -8,28 +8,31 @@ import { Physics, useBox, usePlane, useSphere } from "use-cannon";
 import { useGlobalState } from "../Global";
 
 /*
- * 1. 表示される入り口
+ * タップするとジャンプするプレイヤー
  */
 const Player = () => {
-  const [jump] = useGlobalState("jump");
-  useFrame((state) => {
-    if (jump) {
-      // console.log("jump");
-    }
-  });
-  const [ref] = useBox(() => ({
+  const [tap, setTap] = useGlobalState("tap");
+  const [landing, setLanding] = useState(false);
+  const [ref, api] = useBox(() => ({
     mass: 1,
     args: [1, 1, 1],
-    position: [0, 3, 0],
+    position: [1, 3, 0],
     onCollide: (obj) => {
-      console.log(obj);
-      if (jump) {
-        // console.log("coliderJump");
-      }
+      if (obj.body.name === "floor") setLanding(true);
     }
   }));
+  useFrame((state) => {
+    if (tap && landing) {
+      console.log("jump");
+      api.applyImpulse([0, 9, 0], [0, 0, 0]);
+      setTap(false);
+      setLanding(false);
+    }
+    ref.current.rotation.set(0, 0, 0);
+    api.position.set(0, ref.current.position.y, 0);
+  });
   return (
-    <mesh ref={ref}>
+    <mesh ref={ref} name="player">
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <meshStandardMaterial attach="material" color={"orange"} />
     </mesh>

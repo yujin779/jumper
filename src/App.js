@@ -19,7 +19,7 @@ const App = () => {
   return (
     <View style={styles.app}>
       <Canvas
-        camera={{ position: [0, 2, 10], near: 0.1, far: 50 }}
+        camera={{ position: [-5, 0.6, 5], near: 0.1, far: 50 }}
         onClick={(e) => {
           setJump(true);
         }}
@@ -32,7 +32,7 @@ const App = () => {
           gravity={[0, -10, 0]}
           defaultContactMaterial={{ restitution: 0 }}
         >
-          <Player />
+          <Player position={[0, 50, 1]} />
           <Floor position={[0, 10, 0]} args={[5, 0.5, 5]} />
         </Physics>
       </Canvas>

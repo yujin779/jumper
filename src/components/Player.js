@@ -16,20 +16,24 @@ const Player = () => {
   const [ref, api] = useBox(() => ({
     mass: 1,
     args: [1, 1, 1],
-    position: [0, 3, 0],
+    position: [-3, 3, 0],
     onCollide: (obj) => {
       if (obj.body.name === "floor") setLanding(true);
     }
   }));
   useFrame((state) => {
     if (tap && landing) {
-      console.log("jump");
+      // console.log(state);
+      // console.log(state.camera);
+      // console.log(state.camera.position);
       api.applyImpulse([0, 9, 0], [0, 0, 0]);
       setTap(false);
       setLanding(false);
     }
+    // 回転させない
     ref.current.rotation.set(0, 0, 0);
-    api.position.set(0, ref.current.position.y, 0);
+    // 位置を移動しない
+    api.position.set(-3, ref.current.position.y, 0);
   });
   return (
     <mesh ref={ref} name="player">

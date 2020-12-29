@@ -15,9 +15,9 @@ const CameraController = () => {
       ref={controls}
       args={[camera, domElement]}
       // カメラのズーム無効
-      enableZoom={false}
+      // enableZoom={false}
       // カメラのパンを無効
-      enablePan={false}
+      // enablePan={false}
     />
   );
 };

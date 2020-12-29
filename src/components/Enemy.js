@@ -17,8 +17,12 @@ const Enemy = () => {
     position: [3, 3, 0]
   }));
   const speed = 0.04;
-  useFrame((state) => {
-    api.position.set(ref.current.position.x - speed, 0, 0);
+  useFrame(({ clock }) => {
+    api.position.set(
+      ref.current.position.x - clock.getElapsedTime() * speed,
+      0,
+      0
+    );
   });
   return (
     <mesh ref={ref} name="enemy">

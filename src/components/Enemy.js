@@ -16,6 +16,7 @@ const Enemy = () => {
     args: [1, 1, 1],
     position: [3, 3, 0]
   }));
+  const speed = 0.04;
   useFrame((state) => {
     // if (tap && landing) {
     //   // console.log(state);
@@ -28,7 +29,7 @@ const Enemy = () => {
     // // 回転させない
     // ref.current.rotation.set(0, 0, 0);
     // // 位置を移動しない
-    // api.position.set(-3, ref.current.position.y, 0);
+    api.position.set(ref.current.position.x - speed, 0, 0);
   });
   return (
     <mesh ref={ref} name="player">

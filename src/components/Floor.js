@@ -11,7 +11,7 @@ import { createGlobalState } from "react-hooks-global-state";
 const Floor = ({ position, args, color }) => {
   const [ref] = useBox(() => ({
     type: "Static",
-    mass: 1,
+    mass: 0,
     args: args,
     position: position,
     name: "floor"

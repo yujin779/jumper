@@ -10,26 +10,32 @@ import { useGlobalState } from "../Global";
 /*
  * タップするとジャンプするプレイヤー
  */
-const Enemy = () => {
+const Enemy = ({ number }) => {
   const [ref, api] = useBox(() => ({
     mass: 1,
     args: [1, 1, 1],
-    position: [10, 3, 0]
+    position: [Math.random() * 50, 3, 0]
   }));
   const speed = 0.04;
+
   useFrame(({ clock }) => {
-    api.position.set(
+    // api.position.set(
+    //   ref.current.position.x - clock.getElapsedTime() * speed,
+    //   ref.current.position.y,
+    //   ref.current.position.z
+    // );
+    ref.current.position.set(
       ref.current.position.x - clock.getElapsedTime() * speed,
-      0,
-      0
+      ref.current.position.y,
+      ref.current.position.z
     );
     // console.log(clock.getElapsedTime());
   });
   return (
-    <mesh ref={ref} name="enemy">
+    <instancedMesh ref={ref} name="enemy" args={[null, null, number]}>
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <meshStandardMaterial attach="material" color={"green"} />
-    </mesh>
+    </instancedMesh>
   );
 };
 export default Enemy;

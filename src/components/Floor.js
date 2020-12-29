@@ -12,13 +12,13 @@ const Floor = ({ position, args, color }) => {
   const [ref] = useBox(() => ({
     type: "Static",
     mass: 1,
-    args: [10, 1, 10],
-    position: [0, -1, 0],
+    args: args,
+    position: position,
     name: "floor"
   }));
   return (
     <mesh ref={ref} name="floor">
-      <boxBufferGeometry attach="geometry" args={[10, 1, 10]} />
+      <boxBufferGeometry attach="geometry" args={args} />
       <meshStandardMaterial attach="material" color={"hotpink"} />
     </mesh>
   );

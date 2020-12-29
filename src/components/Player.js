@@ -27,9 +27,9 @@ const Player = () => {
   useFrame((state) => {
     if (tap && landing) {
       // console.log(state);
-      // console.log(state.camera);
+      console.log(state.camera);
       // console.log(state.camera.position);
-      api.applyImpulse([0, 9, 0], [0, 0, 0]);
+      api.applyImpulse([0, 16, 0], [0, 0, 0]);
       setTap(false);
       setLanding(false);
     }

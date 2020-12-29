@@ -14,7 +14,7 @@ const Enemy = () => {
   const [ref, api] = useBox(() => ({
     mass: 1,
     args: [1, 1, 1],
-    position: [3, 3, 0]
+    position: [10, 3, 0]
   }));
   const speed = 0.04;
   useFrame(({ clock }) => {
@@ -23,6 +23,7 @@ const Enemy = () => {
       0,
       0
     );
+    // console.log(clock.getElapsedTime());
   });
   return (
     <mesh ref={ref} name="enemy">

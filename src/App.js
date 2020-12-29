@@ -20,22 +20,34 @@ const App = () => {
   return (
     <View style={styles.app}>
       <Canvas
-        camera={{ position: [-5, 0.6, 5], near: 0.1, far: 50 }}
+        camera={{
+          position: [-0.2, 3, 7.9],
+          // lookAt: [0, 0, 0],
+          // rotation: [0.1, -0.2, 0],
+          // quaternion: [0.0, -0.1, 0.0],
+          near: 0.1,
+          far: 50
+        }}
         onClick={(e) => {
           setJump(true);
         }}
+        // onCreated={({ camera }) => {
+        //   console.log(camera);
+        //   camera.lookAt(900, 90, 0);
+        //   // camera.updateProjectionMatrix();
+        // }}
       >
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         <CameraController />
         <Physics
-          gravity={[0, -10, 0]}
+          gravity={[0, -30, 0]}
           defaultContactMaterial={{ restitution: 0 }}
         >
           <Player position={[0, 50, 1]} />
           <Enemy />
-          <Floor position={[0, 10, 0]} args={[5, 0.5, 5]} />
+          <Floor position={[0, -1, 0]} args={[500, 0.5, 5]} />
         </Physics>
       </Canvas>
     </View>

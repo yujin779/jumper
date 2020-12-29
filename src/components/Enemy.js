@@ -18,21 +18,10 @@ const Enemy = () => {
   }));
   const speed = 0.04;
   useFrame((state) => {
-    // if (tap && landing) {
-    //   // console.log(state);
-    //   // console.log(state.camera);
-    //   // console.log(state.camera.position);
-    //   api.applyImpulse([0, 9, 0], [0, 0, 0]);
-    //   setTap(false);
-    //   setLanding(false);
-    // }
-    // // 回転させない
-    // ref.current.rotation.set(0, 0, 0);
-    // // 位置を移動しない
     api.position.set(ref.current.position.x - speed, 0, 0);
   });
   return (
-    <mesh ref={ref} name="player">
+    <mesh ref={ref} name="enemy">
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
       <meshStandardMaterial attach="material" color={"green"} />
     </mesh>

@@ -19,6 +19,9 @@ const Player = () => {
     position: [-3, 3, 0],
     onCollide: (obj) => {
       if (obj.body.name === "floor") setLanding(true);
+      if (obj.body.name === "enemy") {
+        console.log("gameover");
+      }
     }
   }));
   useFrame((state) => {

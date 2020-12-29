@@ -10,6 +10,7 @@ import { useGlobalState } from "./Global";
 
 import Floor from "./components/Floor";
 import Player from "./components/Player";
+import Enemy from "./components/Enemy";
 
 /*
  * 1. 表示される入り口
@@ -33,6 +34,7 @@ const App = () => {
           defaultContactMaterial={{ restitution: 0 }}
         >
           <Player position={[0, 50, 1]} />
+          <Enemy />
           <Floor position={[0, 10, 0]} args={[5, 0.5, 5]} />
         </Physics>
       </Canvas>

@@ -33,7 +33,7 @@ const App = () => {
           far: 50
         }}
         onClick={(e) => {
-          tapTrue()
+          tapTrue();
         }}
         // onCreated={({ camera }) => {
         //   console.log(camera);

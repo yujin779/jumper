@@ -15,7 +15,7 @@ import dino from "../assets/gltf/dino.glb";
  * タップするとジャンプするプレイヤー
  */
 const Player = () => {
-  const args = [1, 2.7, 1];
+  const args = [1, 1, 1];
   const gltf = useLoader(GLTFLoader, dino);
   // console.log(gltf);
   const tapFalse = useStore((state) => state.tapFalse);
@@ -32,7 +32,7 @@ const Player = () => {
       }
     }
   }));
-  console.log(api.position);
+  // console.log(ref);
   useFrame((state) => {
     // console.log(tap);
     if (tap && landing) {
@@ -46,7 +46,9 @@ const Player = () => {
     }
     // 回転させない
     ref.current.rotation.set(0, 0, 0);
-
+    ref.current.position.setX(-3);
+    ref.current.position.setZ(0);
+    // api.velocity.set(0,)
     // 位置を移動しない
     // api.position.set(-3, ref.current.position.y, 0);
     // api.position.set(-3, ref.current.position.y > 1 ? ref.current.position.y : 2, 0);

@@ -14,9 +14,3 @@ export const useStore = create((set) => ({
   tapFalse: () => set((state) => ({ tap: false }))
 }));
 
-// const initialState = {
-//   scene: Scene.Opning,
-//   score: 0,
-//   tap: false
-// };
-// export const { useGlobalState } = createGlobalState(initialState);

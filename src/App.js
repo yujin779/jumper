@@ -5,9 +5,9 @@ import { View, Text } from "react-native";
 import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
 import CameraController from "./components/CameraController";
 import { Physics, useBox, usePlane, useSphere } from "use-cannon";
-
+import { useStore } from "./Global";
 import styles from "./styles";
-import { useGlobalState } from "./Global";
+// import { useGlobalState } from "./Global";
 
 import Floor from "./components/Floor";
 import Player from "./components/Player";
@@ -17,7 +17,9 @@ import Enemy from "./components/Enemy";
  * 1. 表示される入り口
  */
 const App = () => {
-  const [, setJump] = useGlobalState("tap");
+  // const [, setJump] = useGlobalState("tap");
+  // const steteTap = useStore((state) => state.tap);
+  const tapTrue = useStore((state) => state.tapTrue);
   return (
     <View style={styles.app}>
       <Canvas
@@ -31,7 +33,7 @@ const App = () => {
           far: 50
         }}
         onClick={(e) => {
-          setJump(true);
+          tapTrue()
         }}
         // onCreated={({ camera }) => {
         //   console.log(camera);
@@ -48,8 +50,8 @@ const App = () => {
           defaultContactMaterial={{ restitution: 0 }}
         >
           <Player />
-          <Enemy />
-          <Enemy />
+          {/* <Enemy />
+          <Enemy /> */}
           <Floor position={[0, -1, 0]} args={[1500, 0.5, 3]} />
         </Physics>
       </Canvas>

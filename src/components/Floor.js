@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { View, Text } from "react-native";
 import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
 import { Physics, useBox, usePlane, useSphere } from "use-cannon";
-import { createGlobalState } from "react-hooks-global-state";
+// import { createGlobalState } from "react-hooks-global-state";
 
 /*
  * 1. 表示される入り口

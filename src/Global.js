@@ -1,4 +1,6 @@
-import { createGlobalState } from "react-hooks-global-state";
+// import { createGlobalState } from "react-hooks-global-state";
+
+import create from "zustand";
 
 export const Scene = {
   Opning: 0,
@@ -6,9 +8,15 @@ export const Scene = {
   GameOver: 2
 };
 
-const initialState = {
-  scene: Scene.Opning,
-  score: 0,
-  tap: false
-};
-export const { useGlobalState } = createGlobalState(initialState);
+export const useStore = create((set) => ({
+  tap: false,
+  tapTrue: () => set((state) => ({ tap: true })),
+  tapFalse: () => set((state) => ({ tap: false }))
+}));
+
+// const initialState = {
+//   scene: Scene.Opning,
+//   score: 0,
+//   tap: false
+// };
+// export const { useGlobalState } = createGlobalState(initialState);

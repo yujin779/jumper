@@ -5,6 +5,7 @@ import { View, Text } from "react-native";
 import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
 import CameraController from "./components/CameraController";
 import { Physics, useBox, usePlane, useSphere } from "use-cannon";
+
 import styles from "./styles";
 import { useGlobalState } from "./Global";
 

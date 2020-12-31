@@ -15,13 +15,15 @@ import dino from "../assets/gltf/dino.glb";
  * タップするとジャンプするプレイヤー
  */
 const Player = () => {
-  const args = [4, 1, 4];
+  const args = [1, 2.5, 1];
   const gltf = useLoader(GLTFLoader, dino);
   // console.log(gltf);
   const tapFalse = useStore((state) => state.tapFalse);
   const tap = useStore((state) => state.tap);
   const [landing, setLanding] = useState(false);
   const [ref, api] = useBox(() => ({
+    type: "Dynamic",
+    fixedRotation: true,
     mass: 1,
     args: args,
     position: [-3, 3, 0],

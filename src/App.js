@@ -11,7 +11,7 @@ import styles from "./styles";
 
 import Floor from "./components/Floor";
 import Player from "./components/Player";
-import Enemy from "./components/Enemy";
+import Enemys from "./components/Enemy";
 
 /*
  * 1. 表示される入り口
@@ -24,13 +24,13 @@ const App = () => {
     <View style={styles.app}>
       <Canvas
         camera={{
-          position: [-0.2, 3, 10],
-          // position: [0, 30, 0],
+          // position: [-0.2, 3, 10],
+          position: [0, 3, 100],
           // lookAt: [0, 0, 0],
           // rotation: [0.1, -0.2, 0],
           // quaternion: [0.0, -0.1, 0.0],
           near: 0.1,
-          far: 50
+          far: 500
         }}
         onClick={(e) => {
           tapTrue();
@@ -49,9 +49,9 @@ const App = () => {
           gravity={[0, -30, 0]}
           defaultContactMaterial={{ restitution: 0 }}
         >
-          <Player />
-          {/* <Enemy />
-          <Enemy /> */}
+          {/* <Player /> */}
+          <Enemys />
+          {/* <Enemy /> */}
           <Floor position={[0, -1, 0]} args={[1500, 0.5, 3]} />
         </Physics>
       </Canvas>

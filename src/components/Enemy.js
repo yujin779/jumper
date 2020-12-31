@@ -7,16 +7,24 @@ import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
 import { Physics, useBox, usePlane, useSphere } from "use-cannon";
 import { useGlobalState } from "../Global";
 
-/*
- * タップするとジャンプするプレイヤー
- */
-const Enemy = ({ number }) => {
-  const distance = 50;
+const Enemys = ({ number }) => {
+  const [enemys, setEnemys] = useState([
+    { position: [0, 2, 0] },
+    { position: [3, 2, 0] },
+    { position: [5, 2, 0] }
+  ]);
+  return enemys.map((props, index) => <Enemy key={index} {...props} />);
+};
 
+/*
+ * 接触するとgameover
+ */
+const Enemy = (props) => {
+  console.log(props);
   const [ref, api] = useBox(() => ({
     mass: 1,
     args: [1, 1, 1],
-    position: [Math.random() * distance + 8, 3, 0]
+    position: props.position
   }));
   const speed = 0.08;
 
@@ -27,9 +35,9 @@ const Enemy = ({ number }) => {
       ref.current.position.z
     );
 
-    if (ref.current.position.x < -10 || ref.current.position.y < -10) {
-      api.position.set(Math.random() * distance + 8, 1, Math.random() - 0.5);
-    }
+    // if (ref.current.position.x < -10 || ref.current.position.y < -10) {
+    //   api.position.set(Math.random() * distance + 8, 1, Math.random() - 0.5);
+    // }
     // console.log(ref.current.position.x);
   });
   return (
@@ -39,4 +47,4 @@ const Enemy = ({ number }) => {
     </mesh>
   );
 };
-export default Enemy;
+export default Enemys;

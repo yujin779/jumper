@@ -8,11 +8,19 @@ import { Physics, useBox, usePlane, useSphere } from "use-cannon";
 import { useGlobalState } from "../Global";
 
 const Enemys = ({ number }) => {
-  const [enemys, setEnemys] = useState([
-    { position: [0, 2, 0] },
-    { position: [3, 2, 0] },
-    { position: [5, 2, 0] }
-  ]);
+  const enemysList = [];
+  const startX = 0;
+  // enemysList.push({ position: [0, 1, 0] });
+  // enemysList.push({ position: [1, 1, 0] });
+  // enemysList.push({ position: [30, 1, 0] });
+  for (let i = 0; i < 10; i++) {
+    let p = 0;
+    if (i !== 0) p = enemysList[i - 1].position[0] + 2;
+    enemysList.push({ position: [p, 1, 0] });
+    console.log(enemysList[i]);
+  }
+  const [enemys] = useState(enemysList);
+  // console.log(enemys);
   return enemys.map((props, index) => <Enemy key={index} {...props} />);
 };
 
@@ -20,7 +28,7 @@ const Enemys = ({ number }) => {
  * 接触するとgameover
  */
 const Enemy = (props) => {
-  console.log(props);
+  // console.log(props);
   const [ref, api] = useBox(() => ({
     mass: 1,
     args: [1, 1, 1],

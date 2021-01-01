@@ -11,6 +11,8 @@ export const Scene = {
 export const useStore = create((set) => ({
   tap: false,
   tapTrue: () => set((state) => ({ tap: true })),
-  tapFalse: () => set((state) => ({ tap: false }))
+  tapFalse: () => set((state) => ({ tap: false })),
+  speed: 0.08,
+  enemyEnd: 0,
+  setEnemyEnd: (x) => set((state) => ({ enemyEnd: x }))
 }));
-

@@ -3,7 +3,8 @@ import React, { useRef, useState } from "react";
 import * as THREE from "three";
 import { View, Text } from "react-native";
 import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
-import CameraController from "./components/CameraController";
+// import CameraController from "./components/CameraController";
+import { OrbitControls } from "@react-three/drei";
 import { Physics, useBox, usePlane, useSphere } from "use-cannon";
 import { useStore } from "./Global";
 import styles from "./styles";
@@ -11,7 +12,7 @@ import styles from "./styles";
 
 import Floor from "./components/Floor";
 import Player from "./components/Player";
-import Enemys from "./components/Enemy";
+import Enemy from "./components/Enemy";
 
 /*
  * 1. 表示される入り口
@@ -25,7 +26,7 @@ const App = () => {
       <Canvas
         camera={{
           // position: [-0.2, 3, 10],
-          position: [0, 3, 100],
+          position: [0, 3, 50],
           // lookAt: [0, 0, 0],
           // rotation: [0.1, -0.2, 0],
           // quaternion: [0.0, -0.1, 0.0],
@@ -44,13 +45,13 @@ const App = () => {
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
-        <CameraController />
+        <OrbitControls />
         <Physics
           gravity={[0, -30, 0]}
           defaultContactMaterial={{ restitution: 0 }}
         >
-          {/* <Player /> */}
-          <Enemys />
+          <Player />
+          <Enemy number={10} />
           {/* <Enemy /> */}
           <Floor position={[0, -1, 0]} args={[1500, 0.5, 3]} />
         </Physics>

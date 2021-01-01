@@ -20,9 +20,10 @@ const Player = () => {
   // console.log(gltf);
   const tapFalse = useStore((state) => state.tapFalse);
   const tap = useStore((state) => state.tap);
+
   const [landing, setLanding] = useState(false);
   const [ref, api] = useBox(() => ({
-    type: "Dynamic",
+    // type: "Static",
     fixedRotation: true,
     mass: 1,
     args: args,

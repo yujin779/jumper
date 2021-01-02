@@ -23,7 +23,7 @@ const Player = () => {
 
   const [landing, setLanding] = useState(false);
   const [ref, api] = useBox(() => ({
-    // type: "Static",
+    type: "Static",
     fixedRotation: true,
     mass: 1,
     args: args,

@@ -2,11 +2,10 @@ import React, { useRef, useState, useMemo } from "react";
 import * as THREE from "three";
 import { View, Text } from "react-native";
 import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
-// import * as CANNON from "cannon";
-// import { createGlobalState } from "react-hooks-global-state";
-import { Physics, useBox, usePlane, useSphere } from "use-cannon";
+
+import { useBox } from "use-cannon";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-// import { useGlobalState } from "../Global";
+
 import { useStore } from "../Global";
 import { useLoader } from "react-three-fiber";
 import dino from "../assets/gltf/dino.glb";
@@ -35,13 +34,8 @@ const Player = () => {
       }
     }
   }));
-  // console.log(ref);
   useFrame((state) => {
-    // console.log(tap);
     if (tap && landing) {
-      // console.log(state);
-      // console.log(state.camera);
-      // console.log(state.camera.position);
 
       api.applyImpulse([0, 20, 0], [0, 0, 0]);
       tapFalse();
